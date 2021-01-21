@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="row">
+    <div class="md-col-4">
+      <br>
+      <button class="btn btn-primary">Dispositivos Electronicos</button>
+    </div>
+    <div>
+      <br>
+      <button class="btn btn-danger">Conexiones de Red</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Lista de Dispositivos
+    </div>
+    <div class="card-block">
+      <table class="table table-hover">
+        <thead class="thead-default">
+          <tr>
+            <th scope="col">Dispositivo Id</th>
+            <th scope="col">Conexion Actual</th>
+            <th scope="col">IP</th>
+            <th scope="col">Mac</th>
+            <th scope="col">Tipo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dispositivo of listaDispositivo">
+            <td>{{dispositivo.conexionActual}}</td>
+            <td>{{dispositivo.conexionRed}}</td>
+            <td>{{dispositivo.ip}}</td>
+            <td>{{dispositivo.mac}}</td>
+            <td>{{dispositivo.tipo}}</td>
+            <td>
+              <div class="row">
+                <div class="col-md-3">
+                  <button class="btn btn-danger" (click)="eliminarDispositivo(dispositivo.dispositivoId)">Eliminar</button>
+                </div>
+                <div class="col-md-4">
+                  <button class="btn btn-primary">Actualizar</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Lista de Conexiones
+    </div>
+    <div class="card-block">
+      <table class="table table-hover">
+        <thead class="thead-default">
+          <tr>
+            <th scope="col">Conexion Id</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo Cifrado</th>
+            <th scope="col">Usuario Conexion</th>
+            <th scope="col">Contraseña Conexion</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let conexiones of listaConexion">
+            <td>{{conexiones.id}}</td>
+            <td>{{conexiones.tipo}}</td>
+            <td>{{conexiones.nombre}}</td>
+            <td>{{conexiones.tipoCifrado}}</td>
+            <td>{{conexiones.usuarioConexion}}</td>
+            <td>{{conexiones.contrasenaConexion}}</td>
+            <td>
+              <div class="row">
+                <div class="col-md-4">
+                  <button class="btn btn-danger" (click)="eliminarConexiones(conexiones.id)">Eliminar</button>
+                </div>
+                <div class="col-md-4">
+                  <button class="btn btn-primary">Actualizar</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<app-listar1></app-listar1>
+<router-outlet></router-outlet>
